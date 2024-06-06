@@ -1,0 +1,191 @@
+﻿
+.index-page-background {
+    background: url('../userimages/r (4).jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    color: #333333; 
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../userimages/r (4).jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #333333; 
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #333333; 
+}
+
+.homepage-content {
+    color: #333333; 
+}
+/
+.card-title,
+.card-text {
+    color: #333333; 
+}
+
+
+.comment-card .card-text,
+.comment-card .card-footer {
+    color: #333333; 
+}
+
+
+.btn {
+    color: #ffffff; 
+}
+
+
+.alert {
+    color: #333333; 
+}
+
+
+h4 {
+    color: #333333; 
+}
+
+
+.footer {
+    color: #333333; 
+}
+
+.container {
+    background-color:lightblue; 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+h1.my-4,
+h1.display-4 {
+    font-size: 2.5rem;
+    color: #000000; 
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.card {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .card .card-body {
+        padding: 20px;
+    }
+
+.card-title {
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+.img-fluid {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.comment-card {
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 10px;
+}
+
+    .comment-card .card-body {
+        padding: 15px;
+    }
+
+
+.textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+.alert {
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+
+h4 {
+    font-size: 1.5rem;
+    color: #000000; 
+}
+
+hr {
+    border-top: 1px solid #ccc;
+}
+
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
+
+    .button-group .form-group {
+        margin: 0;
+    }
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}

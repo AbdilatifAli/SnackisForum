@@ -1,0 +1,92 @@
+﻿@page
+@model SnackisForum.Pages.PostDetailsModel
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "All Posts";
+}
+
+<h1 class="my-4">All Posts</h1>
+
+@if (Model.Posts != null && Model.Posts.Count > 0)
+{
+    @foreach (var post in Model.Posts)
+    {
+        <div class="card mb-4 shadow-sm football-card">
+            <div class="card-body">
+                <h3 class="card-title">@post.Header</h3>
+                <p class="card-text">@post.Text</p>
+
+                @if (!string.IsNullOrEmpty(post.Image))
+                {
+                    <img src="/userImages/@post.Image" alt="Image for @post.Header" class="img-fluid rounded my-3 football-image" />
+                }
+
+                <section class="mt-4">
+                    <h4>Comments</h4>
+                    <hr />
+                    @if (post.Comments != null && post.Comments.Count > 0)
+                    {
+                        @foreach (var comment in post.Comments)
+                        {
+                            <div class="card mt-3 comment-card">
+                                <div class="card-body">
+                                    <p class="card-text">@comment.Text</p>
+                                    <footer class="blockquote-footer">
+                                        <small class="text-muted">@comment.CreateAt.ToString("g")</small>
+                                    </footer>
+                                    <form method="post" asp-page-handler="Report" asp-route-commentId="@comment.Id" class="d-inline">
+                                        <div class="form-group">
+                                            <textarea name="NewReport.Reason" class="form-control football-textarea" rows="2" placeholder="Reason for reporting"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-danger btn-sm football-btn">Report</button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No comments yet.</p>
+                    }
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="mt-4">
+                            <h5>Add a Comment</h5>
+                            <form method="post" asp-page-handler="AddComment" asp-route-postId="@post.Id" class="d-inline-block">
+                                <div class="form-group">
+                                    <textarea asp-for="NewComment.Text" class="form-control football-textarea" rows="3" placeholder="Write your comment here..."></textarea>
+                                    <span asp-validation-for="NewComment.Text" class="text-danger"></span>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2 football-btn">Add Comment</button>
+                            </form>
+                            <form method="post" asp-page-handler="Report" asp-route-postId="@post.Id" class="d-inline-block ml-2">
+                                <div class="form-group">
+                                    <textarea name="NewReport.Reason" class="form-control football-textarea" rows="2" placeholder="Reason for reporting"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-sm football-btn">Report</button>
+                            </form>
+                        </div>
+                        @if (post.UserId == UserManager.GetUserId(User) || User.IsInRole("Admin"))
+                        {
+                            <div class="mt-2">
+                                <form method="post" asp-page-handler="DeletePost" asp-route-postId="@post.Id" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm football-btn">Delete Post</button>
+                                </form>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning mt-4">You need to be logged in to add a comment or report.</div>
+                    }
+                </section>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-info">No posts available.</div>
+}

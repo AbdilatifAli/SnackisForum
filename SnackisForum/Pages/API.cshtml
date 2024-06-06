@@ -1,0 +1,19 @@
+﻿@page
+@model APi
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container mt-3">
+    <h1>Welcome to the Forum Categories</h1>
+
+
+<ul>
+@foreach (var category in Model.Categories)
+{
+    <li>
+        <strong>@category.Name:</strong>
+    </li>
+}
+</ul>
+
